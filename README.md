@@ -1,1 +1,1 @@
-# ai-chatbot
+# Digital companion
