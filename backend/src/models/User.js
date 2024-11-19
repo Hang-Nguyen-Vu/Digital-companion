@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+var crypto = require("crypto");
 
 // Create a new Mongoose schema that defines the structure of a user document in the MongoDB collection
 const userSchema = new mongoose.Schema(
@@ -22,6 +23,10 @@ const userSchema = new mongoose.Schema(
         consent: { // whether the user agrees to terms and conditions when signing up
             type: Boolean,
             required: true
+        },
+        accessToken: {
+            type: String,
+            default: () => crypto.randomBytes(128).toString("hex") // to generate a new random string
         }
     },
     {
